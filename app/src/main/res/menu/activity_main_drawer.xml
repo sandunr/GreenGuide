@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_drawer_my_reviews"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="My Reviews" />
+        <item
+            android:id="@+id/navigation_drawer_guidelines"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Guidelines" />
+        <item
+            android:id="@+id/navigation_drawer_about"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title=""
+            app:actionLayout="@layout/spinner"/>
+        <item
+            android:id="@+id/navigation_drawer_search"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="User Guide" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/navigation_drawer_signup"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Sign Up" />
+            <item
+                android:id="@+id/navigation_drawer_login"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Log In/Out" />
+        </menu>
+    </item>
+
+</menu>
