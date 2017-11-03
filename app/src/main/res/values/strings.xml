@@ -11,4 +11,41 @@
         <item>Join Us</item>
         <item>Contact Us</item>
     </string-array>
+
+    <string name="industry_prompt">Industry</string>
+
+    <string-array name="industry_array">
+        <item>Advanced Electronics</item>
+        <item>Aerospace \&amp; Defense</item>
+        <item>Automotive \&amp; Assembly</item>
+        <item>Retail banking</item>
+        <item>Food and beverages</item>
+        <item>Consumables</item>
+        <item>Toys \&amp; electronics</item>
+        <item>Apparel</item>
+        <item>Grocery</item>
+        <item>Building materials</item>
+        <item>Basic Materials</item>
+        <item>Chemicals \&amp; Agriculture</item>
+        <item>EPNG (Electric Power \&amp; Natural gas)</item>
+        <item>Oil \&amp; Gas</item>
+        <item>Pharma</item>
+        <item>Medical products</item>
+        <item>High Tech</item>
+        <item>Media \&amp; Entertainment</item>
+        <item>Telecom</item>
+        <item>Semiconductors</item>
+        <item>Utility/ESCo (Energy Service Company)</item>
+        <item>Retailer</item>
+        <item>Portfolio company</item>
+        <item>Hotel</item>
+        <item>Waste management</item>
+        <item>NGO</item>
+        <item>Government</item>
+        <item>Storage</item>
+        <item>Airline</item>
+        <item>Paper and Pulp</item>
+        <item>Networking equipment and services</item>
+
+    </string-array>
 </resources>

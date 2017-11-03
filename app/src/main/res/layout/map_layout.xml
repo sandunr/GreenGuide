@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/map_layout">
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/id_bmapView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="top"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_filter"
+        android:layout_gravity="right|center"
+        android:id="@+id/filter"
+        android:onClick="MainActivity"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pin Info"
+        android:background="@color/white"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:gravity="bottom"
+        android:id="@+id/id_marker_info"
+        android:layout_gravity="center|bottom"
+        android:textSize="30dp">
+
+    </TextView>
+
+</FrameLayout>

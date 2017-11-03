@@ -51,15 +51,34 @@ import java.util.List;
 
 public class POISearch extends FragmentActivity implements
         OnGetPoiSearchResultListener, OnGetSuggestionResultListener {
+    @Override
+    public void onGetPoiResult(PoiResult poiResult) {
 
-    private PoiSearch mPoiSearch = null;
+    }
+
+    @Override
+    public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
+
+    }
+
+    @Override
+    public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
+
+    }
+
+    @Override
+    public void onGetSuggestionResult(SuggestionResult suggestionResult) {
+
+    }
+
+    /*private PoiSearch mPoiSearch = null;
     private SuggestionSearch mSuggestionSearch = null;
     private BaiduMap mBaiduMap = null;
     private List<String> suggest;
     /**
      * 搜索关键字输入窗口
      */
-    private EditText editCity = null;
+    /*private EditText editCity = null;
     private AutoCompleteTextView keyWorldsView = null;
     private ArrayAdapter<String> sugAdapter = null;
     private int loadIndex = 0;
@@ -95,7 +114,7 @@ public class POISearch extends FragmentActivity implements
         /**
          * 当输入关键字变化时，动态更新建议列表
          */
-        keyWorldsView.addTextChangedListener(new TextWatcher() {
+        /*keyWorldsView.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void afterTextChanged(Editable arg0) {
@@ -118,7 +137,7 @@ public class POISearch extends FragmentActivity implements
                 /**
                  * 使用建议搜索服务获取建议列表，结果在onSuggestionResult()中更新
                  */
-                mSuggestionSearch
+                /*mSuggestionSearch
                         .requestSuggestion((new SuggestionSearchOption())
                                 .keyword(cs.toString()).city(editCity.getText().toString()));
             }
@@ -158,7 +177,7 @@ public class POISearch extends FragmentActivity implements
      *
      * @param v
      */
-    public void searchButtonProcess(View v) {
+    /*public void searchButtonProcess(View v) {
         searchType = 1;
         String citystr = editCity.getText().toString();
         String keystr = keyWorldsView.getText().toString();
@@ -171,7 +190,7 @@ public class POISearch extends FragmentActivity implements
      *
      * @param v
      */
-    public void  searchNearbyProcess(View v) {
+    /*public void  searchNearbyProcess(View v) {
         searchType = 2;
         PoiNearbySearchOption nearbySearchOption = new PoiNearbySearchOption().keyword(keyWorldsView.getText()
                 .toString()).sortType(PoiSortType.distance_from_near_to_far).location(center)
@@ -189,7 +208,7 @@ public class POISearch extends FragmentActivity implements
      *
      * @param v
      */
-    public void searchBoundProcess(View v) {
+    /*public void searchBoundProcess(View v) {
         searchType = 3;
         mPoiSearch.searchInBound(new PoiBoundSearchOption().bound(searchbound)
                 .keyword(keyWorldsView.getText().toString()));
@@ -293,7 +312,7 @@ public class POISearch extends FragmentActivity implements
      * @param center
      * @param radius
      */
-    public void showNearbyArea( LatLng center, int radius) {
+    /*public void showNearbyArea( LatLng center, int radius) {
         BitmapDescriptor centerBitmap = BitmapDescriptorFactory
                 .fromResource(R.drawable.icon_geo);
         MarkerOptions ooMarker = new MarkerOptions().position(center).icon(centerBitmap);
@@ -309,7 +328,7 @@ public class POISearch extends FragmentActivity implements
      * 对区域检索的范围进行绘制
      * @param bounds
      */
-    public void showBound( LatLngBounds bounds) {
+    /*public void showBound( LatLngBounds bounds) {
         BitmapDescriptor bdGround = BitmapDescriptorFactory
                 .fromResource(R.drawable.ground_overlay);
 
@@ -322,5 +341,5 @@ public class POISearch extends FragmentActivity implements
         mBaiduMap.setMapStatus(u);
 
         bdGround.recycle();
-    }
+    }*/
 }

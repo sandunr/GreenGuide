@@ -17,7 +17,7 @@
             android:title=""
             app:actionLayout="@layout/spinner"/>
         <item
-            android:id="@+id/navigation_drawer_search"
+            android:id="@+id/navigation_drawer_user_guide"
             android:icon="@drawable/ic_menu_manage"
             android:title="User Guide" />
     </group>

@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.sandun.greenguide.Home.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    android:id="@+id/content_main">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent">
+    <include layout="@layout/map_layout"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_weight="4"/>
 
-        <!-- Middle Section (body)  -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent">
+    <include layout="@layout/layout_bottom_navigation_view"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"/>
 
-            <include layout="@layout/layout_map" />
-
-        </RelativeLayout>
-
-        <!-- bottom Navigation  -->
-        <include layout="@layout/layout_bottom_navigation_view" />
-
-    </RelativeLayout>
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
