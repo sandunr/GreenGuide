@@ -78,6 +78,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search Reviews on Map"/>
+        android:text="Search Reviews on Map"
+        android:onClick="findReviews"/>
 
 </LinearLayout>

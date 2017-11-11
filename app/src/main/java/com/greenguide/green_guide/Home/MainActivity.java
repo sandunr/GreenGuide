@@ -46,6 +46,8 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.search.poi.PoiSearch;
 import com.greenguide.green_guide.Guidelines.GuidelinesActivity;
 import com.greenguide.green_guide.Review.MyReviewsActivity;
+import com.greenguide.green_guide.Search.SearchActivity;
+import com.greenguide.green_guide.Search.ShowReviews;
 import com.greenguide.green_guide.UserGuide.UserGuideActivity;
 import com.greenguide.green_guide.Utils.ExpandableListAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
