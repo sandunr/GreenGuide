@@ -38,6 +38,7 @@
         <activity android:name=".Review.MyReviewsActivity" />
         <activity android:name=".Guidelines.GuidelinesActivity" />
         <activity android:name=".UserGuide.UserGuideActivity"></activity>
+        <activity android:name=".Search.ShowReviews"></activity>
     </application>
 
 </manifest>

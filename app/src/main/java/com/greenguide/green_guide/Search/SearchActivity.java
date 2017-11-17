@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -46,21 +48,22 @@ public class SearchActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: started");
 
         setupBottomNavigationView();
+
+        Button button = (Button) findViewById(R.id.search_reviews_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                try {
+
+                    new LongOperation().execute("");
+
+                } catch (Exception e) {
+                    Log.e("ERROR", e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
-    public void findReviews(View v) {
-        try {
-
-            new LongOperation().execute("");
-
-
-        } catch (Exception e) {
-            Log.e("ERROR", e.getMessage());
-            e.printStackTrace();
-        }
-        //Intent intent = new Intent(SearchActivity.this, ShowReviews.class);
-        //startActivity(intent);
-    }
 
     public class LongOperation extends AsyncTask<String, Void, String> {
 
@@ -68,6 +71,18 @@ public class SearchActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
 
             //String response = "";
+            String url = "http://www.lovegreenguide.com/search-all_app.php?s_company="/*i&s_location=*/;
+            EditText comp_ind_prod = (EditText) findViewById(R.id.search_comp_ind_prod);
+            EditText textLocation = (EditText) findViewById(R.id.search_location);
+
+            String location = String.valueOf(textLocation.getText());
+            String compIndProd = String.valueOf(comp_ind_prod.getText());
+
+            if (location.isEmpty())
+                location = "s_location";
+
+            url += compIndProd + "&" + location;
+
             final StringBuilder json = new StringBuilder();
 
             try {
@@ -76,7 +91,7 @@ public class SearchActivity extends AppCompatActivity {
                 Log.i(TAG, "Reached step 1");
 
                 // Create URL
-                URL endpoint = new URL("http://www.lovegreenguide.com/search-all_app.php?s_company=i&s_location=");
+                URL endpoint = new URL(url);
 
                 Log.i(TAG, "Reached step 2");
 
@@ -124,16 +139,9 @@ public class SearchActivity extends AppCompatActivity {
 
             try {
 
-                JSONArray jsonArray = new JSONArray(result);
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    // Create a marker for each city in the JSON data.
-                    final JSONObject jsonObj = jsonArray.getJSONObject(i);
-                    lat = jsonObj.getDouble("lat");
-                    lng = jsonObj.getDouble("lng");
-
-                    System.out.println(jsonArray.toString());
-                }
-
+                Intent intent = new Intent(SearchActivity.this, ShowReviews.class);
+                intent.putExtra("resultsJsonArray", result);
+                startActivity(intent);
 
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage());

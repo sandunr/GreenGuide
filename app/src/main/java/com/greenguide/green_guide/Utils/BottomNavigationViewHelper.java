@@ -2,8 +2,11 @@ package com.greenguide.green_guide.Utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -25,7 +28,13 @@ public class BottomNavigationViewHelper {
         bottomNavigationViewEx.enableAnimation(false);
         bottomNavigationViewEx.enableItemShiftingMode(false);
         bottomNavigationViewEx.enableShiftingMode(false);
-        bottomNavigationViewEx.setTextVisibility(false);
+        bottomNavigationViewEx.setTextVisibility(true);
+        int textSize =20;
+        bottomNavigationViewEx.setTextSize(textSize);
+        int color = Color.rgb(86, 101, 115);
+        int textColor = Color.rgb(253, 254, 254);
+        bottomNavigationViewEx.setBackgroundColor(color);
+        bottomNavigationViewEx.setItemTextColor(ColorStateList.valueOf(textColor));
     }
 
     public static void enableNavigation(final Context context, BottomNavigationViewEx view) {
@@ -33,7 +42,7 @@ public class BottomNavigationViewHelper {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.ic_house:
+                    case R.id.ic_review:
                         Intent intent1 = new Intent(context, MainActivity.class);
                         context.startActivity(intent1);
                         break;
