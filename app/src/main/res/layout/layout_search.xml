@@ -7,96 +7,14 @@
         android:id="@+id/search_comp_ind_prod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Company/Industry/Product"
+        android:hint="Company/Industry/Product/Location"
+        android:textSize="15dp"
         android:textColorHint="@color/grey"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="50dp"
         android:layout_marginTop="50dp"/>
-
-    <EditText
-        android:id="@+id/search_location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Location"
-        android:textColorHint="@color/grey"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="50dp"/>
-
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Map Type"
-        android:textSize="18dp"/>
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <RadioButton
-            android:id="@+id/radioButton1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Default" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Satellite" />
-
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Record Type"
-        android:textSize="18dp"/>
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Review by current location"/>
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Review by choosing a map location"/>
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="IPE Citation"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Choose an Industry"
-        android:textSize="18dp"/>
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/industry_array"
-        android:prompt="@string/industry_prompt"></Spinner>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter product"
-        android:textSize="18dp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="Product"
-        android:textSize="16dp"/> -->
 
     <Button
         android:id="@+id/search_reviews_button"

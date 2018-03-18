@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="A02tlaGQRiGp5fGojPrgxEuEdommlMsn" />
+            android:value="1FZDPobj4HlWOs0BqCTEbxZNPuDEVuyM" />
 
         <activity
             android:name=".Home.MainActivity"
@@ -39,6 +39,13 @@
         <activity android:name=".Guidelines.GuidelinesActivity" />
         <activity android:name=".UserGuide.UserGuideActivity"></activity>
         <activity android:name=".Search.ShowReviews"></activity>
+        <activity android:name=".Search.ResultItemView">
+            <intent-filter>
+                <action android:name="com.greenguide.green_guide.Search.ResultItemView" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

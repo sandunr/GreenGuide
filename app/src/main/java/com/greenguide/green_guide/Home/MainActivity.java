@@ -11,8 +11,10 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -22,6 +24,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -56,6 +60,7 @@ import com.greenguide.green_guide.Utils.BottomNavigationViewHelper;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -75,6 +80,7 @@ public class MainActivity extends AppCompatActivity
     private static final int ACTIVITY_NUM = 0;
     private MapView mMapView;
     private BMapManager bMapManager;
+    private BaiduMap mBaiduMap;
 
     ExpandableListView listView;
     ExpandableListAdapter listAdapter;
@@ -102,6 +108,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         Log.d(TAG, "onCreate: Starting.");
+        mMapView = (MapView) findViewById(R.id.id_bmapView);
+        mBaiduMap = mMapView.getMap();
         initView();
 
         setSpinner(navigationView);
@@ -118,6 +126,35 @@ public class MainActivity extends AppCompatActivity
         //listDataHeader = new ArrayList<String>();
         //listHash = new HashMap<String, List<String>>();
         //initAboutMenuItemList();
+
+        ImageButton filter = findViewById(R.id.filter);
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+                View mView = getLayoutInflater().inflate(R.layout.map_filter, null);
+                Button defaultMap = (Button) mView.findViewById(R.id.filter_defaultMapTxt);
+                Button satelliteMap = (Button) mView.findViewById(R.id.filter_satelliteMapTxt);
+
+                defaultMap.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+                    }
+                });
+
+                satelliteMap.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+                    }
+                });
+
+                mBuilder.setView(mView);
+                AlertDialog dialog = mBuilder.create();
+                dialog.show();
+            }
+        });
 
     }
 
@@ -440,9 +477,7 @@ public class MainActivity extends AppCompatActivity
 
 
     private void initView() {
-
         setupBottomNavigationView();
-        mMapView = (MapView) findViewById(R.id.id_bmapView);
         GeoPoint geoPoint = new GeoPoint((int) (39.915*1E6), (int) (116.404*1E6));
     }
 

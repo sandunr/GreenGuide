@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -26,6 +27,7 @@ import com.greenguide.green_guide.Utils.BottomNavigationViewHelper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.Console;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -70,68 +72,65 @@ public class SearchActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
 
-            //String response = "";
-            String url = "http://www.lovegreenguide.com/search-all_app.php?s_company="/*i&s_location=*/;
             EditText comp_ind_prod = (EditText) findViewById(R.id.search_comp_ind_prod);
-            EditText textLocation = (EditText) findViewById(R.id.search_location);
-
-            String location = String.valueOf(textLocation.getText());
             String compIndProd = String.valueOf(comp_ind_prod.getText());
 
-            if (location.isEmpty())
-                location = "s_location";
+            if (compIndProd.isEmpty())
+                ;
 
-            url += compIndProd + "&" + location;
+            else {
+                String url = "http://www.lovegreenguide.com/search-all_app.php?s_company=" + compIndProd;
 
-            final StringBuilder json = new StringBuilder();
+                final StringBuilder json = new StringBuilder();
 
-            try {
-                //Thread.sleep(1000);
+                try {
+                    //Thread.sleep(1000);
 
-                Log.i(TAG, "Reached step 1");
+                    Log.i(TAG, "Reached step 1");
 
-                // Create URL
-                URL endpoint = new URL(url);
+                    // Create URL
+                    URL endpoint = new URL(url);
 
-                Log.i(TAG, "Reached step 2");
+                    Log.i(TAG, "Reached step 2");
 
-                // Create connection
-                HttpURLConnection myConnection =
-                        (HttpURLConnection) endpoint.openConnection();
+                    // Create connection
+                    HttpURLConnection myConnection =
+                            (HttpURLConnection) endpoint.openConnection();
 
-                Log.i(TAG, "Reached step 3");
+                    Log.i(TAG, "Reached step 3");
 
-                if (myConnection.getResponseCode() == 200) {
+                    if (myConnection.getResponseCode() == 200) {
 
-                    Log.i(TAG, "Reached step 4");
+                        Log.i(TAG, "Reached step 4");
 
-                    InputStreamReader responseBodyReader =
-                            new InputStreamReader(myConnection.getInputStream());
+                        InputStreamReader responseBodyReader =
+                                new InputStreamReader(myConnection.getInputStream());
 
-                    // Read the JSON data into the StringBuilder
-                    int read;
-                    char[] buff = new char[1024];
-                    while ((read = responseBodyReader.read(buff)) != -1) {
-                        json.append(buff, 0, read);
-                    }
+                        // Read the JSON data into the StringBuilder
+                        int read;
+                        char[] buff = new char[1024];
+                        while ((read = responseBodyReader.read(buff)) != -1) {
+                            json.append(buff, 0, read);
+                        }
 //                    java.util.Scanner s = new java.util.Scanner(responseBodyReader).useDelimiter("\\A");
 //                    response = s.hasNext() ? s.next() : "";
 
-                    //JsonReader jsonReader = new JsonReader(responseBodyReader);
+                        //JsonReader jsonReader = new JsonReader(responseBodyReader);
 
-                    Log.i(TAG, "Reached step 5");
-                    myConnection.disconnect();
+                        Log.i(TAG, "Reached step 5");
+                        myConnection.disconnect();
 
+                    }
+
+                    Log.i(TAG, "Reached step 6");
+
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage());
+                    e.printStackTrace();
                 }
-
-                Log.i(TAG, "Reached step 6");
-
-            } catch (Exception e) {
-                Log.e(TAG, e.getMessage());
-                e.printStackTrace();
+                return json.toString();
             }
-
-            return json.toString();
+            return null;
         }
 
         @Override
